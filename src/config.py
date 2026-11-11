@@ -19,7 +19,7 @@ SINGLE_GRID = (3, 3)        # [ours] single ANFIS uses a 3x3 SOM = 9 rules (pape
 PANFIS_GRIDS = ((3, 3), (4, 4), (5, 5))   # [paper] 9, 16 and 25 rules
 RIDGE = 0.3                 # [ours] ridge term of the least-squares consequent estimate used inside the
                             #        metaheuristic fitness; picked on validation data of development seeds
-                            #        100-104 (experiments/baseline/select_design.py), never on test data
+                            #        100-104 (not used for reporting), never on test data
 
 # ----------------------------------------------------------------- SOM
 SOM_SIGMA = 0.3             # [paper] neighbourhood radius
