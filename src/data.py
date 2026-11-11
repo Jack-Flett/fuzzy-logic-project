@@ -110,7 +110,8 @@ def prepare(seed=0, split="random", scenario="process", k=C.N_FEATURES) -> Datas
     # 4) min-max scaling to [0, 1]
     x_min, x_max = X[tr].min(axis=0), X[tr].max(axis=0)
     x_max = np.where(x_max > x_min, x_max, x_min + 1.0)
-    Xs = ((X - x_min) / (x_max - x_min)).astype(np.float32)
+    # values outside the training range (possible in val/test) are clipped to [0, 1]
+    Xs = np.clip((X - x_min) / (x_max - x_min), 0.0, 1.0).astype(np.float32)
     y_min, y_max = float(y_clip[tr].min()), float(y_clip[tr].max())
     ys = ((y_clip - y_min) / (y_max - y_min)).astype(np.float32)
     ys_raw = ((y - y_min) / (y_max - y_min)).astype(np.float32)
