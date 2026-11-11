@@ -1,0 +1,16 @@
+\begin{tabular}{lccc}
+\hline
+Model & RMSE & $R^2$ & p vs ridge \\
+\hline
+ANFIS & 0.0415 $\pm$ 0.0030 & 0.948 $\pm$ 0.008 & $<$0.001 \\
+SOM-ANFIS & 0.0387 $\pm$ 0.0029 & 0.955 $\pm$ 0.007 & $<$0.001 \\
+SOM-PSO-ANFIS & 0.0462 $\pm$ 0.0102 & 0.934 $\pm$ 0.029 & $<$0.001 \\
+SOM-PSO-ANFIS-Attention & 0.0428 $\pm$ 0.0077 & 0.944 $\pm$ 0.021 & $<$0.001 \\
+SOM-PSO-PANFIS & 0.0394 $\pm$ 0.0029 & 0.953 $\pm$ 0.007 & $<$0.001 \\
+SOM-PSO-PANFIS-Attention & 0.0384 $\pm$ 0.0032 & 0.955 $\pm$ 0.008 & $<$0.001 \\
+\hline
+Ridge regression & 0.0972 $\pm$ 0.0076 & 0.715 $\pm$ 0.035 & -- \\
+MLP (32-16) & 0.0431 $\pm$ 0.0037 & 0.944 $\pm$ 0.009 & $<$0.001 \\
+Random forest & 0.0717 $\pm$ 0.0043 & 0.846 $\pm$ 0.013 & $<$0.001 \\
+\hline
+\end{tabular}

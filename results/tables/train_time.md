@@ -1,0 +1,13 @@
+| Model | Mean training time (s) |
+|---|---|
+| ANFIS | 0.18 |
+| SOM-ANFIS | 0.39 |
+| SOM-PSO-ANFIS | 1.08 |
+| SOM-PSO-ANFIS-Attention | 1.19 |
+| SOM-PSO-PANFIS | 5.57 |
+| SOM-PSO-PANFIS-Attention | 6.50 |
+| SOM-GA-ANFIS | 1.16 |
+| SOM-ACO-ANFIS | 0.81 |
+| Ridge regression | 0.00 |
+| MLP (32-16) | 0.11 |
+| Random forest | 0.32 |

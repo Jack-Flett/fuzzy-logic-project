@@ -1,0 +1,31 @@
+- nrows: 504
+- targetmedian: 18
+- targetmax: 320
+- featuresproc: DBO-E (20), DQO-E (20), DBO-D (20), DQO-D (20), SED-P (16), DBO-P (14), SS-D (8), SED-E (2)
+- rmsemglprocfull: 6.05
+- rmsemglprocanfis: 5.95
+- rmsemglprocridge: 5.78
+- rmsemglprocmean: 6.64
+- fullvsridgeproc: -0.075
+- fullvsridgepproc: 0.023
+- fullvsanfisproc: -0.029
+- fullvsanfispproc: 0.365
+- fullvsanfiswproc: 0.070
+- featuressoft: DQO-E (20), DBO-D (20), DQO-D (20), DQO-S (20), SS-S (20), DBO-E (18), SED-P (1), PH-S (1)
+- rmsemglsoftfull: 4.34
+- rmsemglsoftanfis: 4.35
+- rmsemglsoftridge: 4.30
+- rmsemglsoftmean: 6.64
+- fullvsridgesoft: -0.009
+- fullvsridgepsoft: 0.379
+- fullvsanfissoft: +0.003
+- fullvsanfispsoft: 0.899
+- fullvsanfiswsoft: 0.812
+- ysplit: 353/76/75
+- yclipmax: 36.5
+- sanityanfis: 0.948
+- sanityridge: 0.715
+- sanitysomp: 0.087
+- sanitysomd: +0.007
+- sanitypsod: -0.021
+- sanitypsop: 0.056
