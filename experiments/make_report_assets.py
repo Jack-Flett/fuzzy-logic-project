@@ -57,7 +57,7 @@ def fmt_p(p):
 def write_table(name, header, rows, caption_note=""):
     """Save one table as CSV, Markdown and LaTeX (tabular only)."""
     plain = [[str(c).replace("$\\pm$", "±").replace("$<$", "<").replace("$", "").replace("\\", "") for c in r]
-             for r in rows]
+             for r in rows if r[0] != "---"]
     pd.DataFrame(plain, columns=header).to_csv(TABLES / f"{name}.csv", index=False)
     md = ["| " + " | ".join(header) + " |", "|" + "---|" * len(header)]
     md += ["| " + " | ".join(r) + " |" for r in plain]
@@ -87,7 +87,7 @@ def ladder_tables(rep):
             ref = names[i - 1] if 0 < i < len(names) else ("SOM-ANFIS" if i >= len(names) else None)
             if ref:
                 d, _, w, pc, _ = paired(df, ref, m)
-                delta, pcol = f"{d:+.3f}", fmt_p(pc)
+                delta, pcol = f"${d:+.3f}$", fmt_p(pc)
             else:
                 delta, pcol = "--", "--"
             if i == len(names):
@@ -112,8 +112,7 @@ def ladder_tables(rep):
         if m == BASELINES[0]:
             rows.append(["---"] + [""] * 4)
         rows.append(r)
-    write_table("ladder_chrono_raw", ["Model", "Proc. raw-target R2", "Proc. chrono R2",
-                                      "Soft. raw-target R2", "Soft. chrono R2"], rows)
+    write_table("ladder_chrono_raw", ["Model", "Process, raw", "Process, chrono.", "Soft-s., raw", "Soft-s., chrono."], rows)
 
     # training time
     df = rep[(rep.split == "random")]
@@ -149,7 +148,7 @@ def extension_tables(ext):
                     r += [pm(g.test_R2), "ref.", "--"]
                 else:
                     d, _, w, pc, _ = paired(df, ref, m)
-                    r += [pm(g.test_R2), f"{d:+.3f}", fmt_p(pc)]
+                    r += [pm(g.test_R2), f"${d:+.3f}$", fmt_p(pc)]
             rows.append(r)
         write_table(name, ["Variant", "#Par.", "Proc. R2", "Delta", "p", "Soft. R2", "Delta", "p"], rows)
 
@@ -160,7 +159,7 @@ def noise_table(noise):
         df = noise[noise.scenario == scen]
         for m in df.model.unique():
             g = df[df.model == m].groupby("noise").test_R2.mean()
-            rows.append([SCEN[scen].split()[0], m] + [f"{v:.3f}" for v in g.values] + [f"{g.iloc[-1] - g.iloc[0]:+.3f}"])
+            rows.append([SCEN[scen].split()[0], m] + [f"{v:.3f}" for v in g.values] + [f"${g.iloc[-1] - g.iloc[0]:+.3f}$"])
         rows.append(["---"] + [""] * (len(g) + 2))
     levels = [f"s={v:g}" for v in sorted(noise.noise.unique())]
     write_table("noise", ["Inputs", "Model"] + levels + ["Loss"], rows[:-1])
@@ -176,7 +175,7 @@ def summary_table(rep, ext):
                                       ("test_R2", "R2", 3), ("params", "Parameters", 0),
                                       ("train_time_s", "Training time (s)", 2)):
             b, p = base[metric].mean(), prop[metric].mean()
-            rows.append([SCEN[scen].split()[0], label, f"{b:.{digits}f}", f"{p:.{digits}f}", f"{(p - b) / abs(b) * 100:+.1f}%"])
+            rows.append([SCEN[scen].split()[0], label, f"{b:.{digits}f}", f"{p:.{digits}f}", f"${(p - b) / abs(b) * 100:+.1f}$%"])
         rows.append(["---", "", "", "", ""])
     write_table("summary_baseline_vs_proposed", ["Inputs", "Metric", "Baseline", "Simplified", "Change"], rows[:-1])
 
@@ -198,10 +197,10 @@ def facts(rep, san):
                         ("Mean predictor", "mean")):
             f[f"rmsemgl{tag}{mtag}"] = f"{df[df.model == m].test_RMSE_mgL.mean():.2f}"
         d, _, w, pc, ci = paired(df, "Ridge regression", "SOM-PSO-PANFIS-Attention")
-        f[f"fullvsridge{tag}"] = f"{d:+.3f}"
+        f[f"fullvsridge{tag}"] = f"${d:+.3f}$"
         f[f"fullvsridgep{tag}"] = fmt_p(pc)
         d, _, w, pc, ci = paired(df, "ANFIS", "SOM-PSO-PANFIS-Attention")
-        f[f"fullvsanfis{tag}"] = f"{d:+.3f}"
+        f[f"fullvsanfis{tag}"] = f"${d:+.3f}$"
         f[f"fullvsanfisp{tag}"] = fmt_p(pc)
         f[f"fullvsanfisw{tag}"] = fmt_p(w)
     d0 = prepare(0)
@@ -211,8 +210,8 @@ def facts(rep, san):
     f["sanityanfis"] = f"{piv['ANFIS'].mean():.3f}"
     f["sanityridge"] = f"{piv['Ridge regression'].mean():.3f}"
     f["sanitysomp"] = fmt_p(stats.ttest_rel(piv["SOM-ANFIS"], piv["ANFIS"]).pvalue)
-    f["sanitysomd"] = f"{(piv['SOM-ANFIS'] - piv['ANFIS']).mean():+.3f}"
-    f["sanitypsod"] = f"{(piv['SOM-PSO-ANFIS'] - piv['SOM-ANFIS']).mean():+.3f}"
+    f["sanitysomd"] = f"${(piv['SOM-ANFIS'] - piv['ANFIS']).mean():+.3f}$"
+    f["sanitypsod"] = f"${(piv['SOM-PSO-ANFIS'] - piv['SOM-ANFIS']).mean():+.3f}$"
     f["sanitypsop"] = fmt_p(stats.ttest_rel(piv["SOM-PSO-ANFIS"], piv["SOM-ANFIS"]).pvalue)
     tex = "".join(f"\\newcommand{{\\fact{k}}}{{{v}}}\n" for k, v in f.items())
     (TABLES / "facts.tex").write_text(tex)

@@ -5,7 +5,6 @@
 | Process | R2 | 0.159 | 0.171 | +7.7% |
 | Process | Parameters | 13238 | 950 | -92.8% |
 | Process | Training time (s) | 6.31 | 6.04 | -4.1% |
-| --- |  |  |  |  |
 | Soft-sensor | RMSE (scaled) | 0.1352 | 0.1375 | +1.7% |
 | Soft-sensor | MAE (scaled) | 0.1036 | 0.1060 | +2.4% |
 | Soft-sensor | R2 | 0.566 | 0.550 | -2.8% |
