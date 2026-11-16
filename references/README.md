@@ -2,8 +2,9 @@
 
 Every source cited in the report is listed here with a link, so it can be checked.
 "Checked" means the title, authors, venue, year and DOI were confirmed against a publisher,
-index or repository page on 11 Nov 2026. Three classic papers at the end were cited from
-their well-known bibliographic data; open the DOI link once to confirm them yourself.
+index or repository page. References 1–11 were checked on 11 Nov 2026. On 16 Nov 2026 all
+references were checked again against their DOI records (Crossref; DataCite for the dataset;
+the DergiPark article page for reference 8), including the three classic papers 12–14.
 
 ## Reference paper
 
@@ -28,11 +29,11 @@ their well-known bibliographic data; open the DOI link once to confirm them your
 10. F. Bagherzadeh, M.-J. Mehrani, M. Basirifard, and J. Roostaei, "Comparative study on total nitrogen prediction in wastewater treatment plant and effect of various feature selection methods on machine learning algorithms performance," *J. Water Process Eng.*, vol. 41, art. 102033, 2021. https://doi.org/10.1016/j.jwpe.2021.102033 — checked.
 11. Y. Xie, Y. Chen, Q. Wei, and H. Yin, "A hybrid deep learning approach to improve real-time effluent quality prediction in wastewater treatment plant," *Water Research*, vol. 250, art. 121092, 2024. https://doi.org/10.1016/j.watres.2023.121092 — checked.
 
-## Classic papers (open the link once to confirm)
+## Classic papers
 
-12. L. A. Zadeh, "Fuzzy sets," *Information and Control*, vol. 8, no. 3, pp. 338–353, 1965. https://doi.org/10.1016/S0019-9958(65)90241-X
-13. T. Takagi and M. Sugeno, "Fuzzy identification of systems and its applications to modeling and control," *IEEE Trans. Syst., Man, Cybern.*, vol. SMC-15, no. 1, pp. 116–132, 1985. https://doi.org/10.1109/TSMC.1985.6313399
-14. T. Kohonen, "The self-organizing map," *Proc. IEEE*, vol. 78, no. 9, pp. 1464–1480, 1990. https://doi.org/10.1109/5.58325
+12. L. A. Zadeh, "Fuzzy sets," *Information and Control*, vol. 8, no. 3, pp. 338–353, 1965. https://doi.org/10.1016/S0019-9958(65)90241-X — checked.
+13. T. Takagi and M. Sugeno, "Fuzzy identification of systems and its applications to modeling and control," *IEEE Trans. Syst., Man, Cybern.*, vol. SMC-15, no. 1, pp. 116–132, 1985. https://doi.org/10.1109/TSMC.1985.6313399 — checked.
+14. T. Kohonen, "The self-organizing map," *Proc. IEEE*, vol. 78, no. 9, pp. 1464–1480, 1990. https://doi.org/10.1109/5.58325 — checked.
 
 ## Code
 
