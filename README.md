@@ -5,7 +5,7 @@ Term project for the Fuzzy Logic (Bulanık Mantık) course.
 ## Student information
 
 - **Name:** Jack Emre Flett
-- **University:** Istanbul University-Cerrahpaşa, Department of Computer Engineering (3rd year)
+- **University:** Istanbul University-Cerrahpaşa, Department of Computer Engineering (4th year)
 - **Course:** Bulanık Mantık (Fuzzy Logic), term project, November 2026
 
 ## Original paper
@@ -73,7 +73,7 @@ Imputation, clipping, feature selection and scaling are fitted on the training p
 ```bash
 git clone <this repository>
 cd fuzzy-logic-project
-python3 -m venv .venv && source .venv/bin/activate      # Python 3.11–3.13
+python3 -m venv .venv && source .venv/bin/activate      # Python 3.13; also tested locally on 3.14
 pip install -r requirements.txt
 python -m pytest -q                                      # 6 unit tests, a few seconds
 ```
@@ -81,7 +81,7 @@ python -m pytest -q                                      # 6 unit tests, a few s
 ## Requirements
 
 Python 3.13 with `torch 2.15`, `numpy 2.5`, `pandas 3.0`, `scikit-learn 1.9`, `scipy 1.18`, `matplotlib 3.11`
-(exact versions in `requirements.txt`). CPU only; no GPU needed.
+(exact versions in `requirements.txt`). CPU only; no GPU needed. Tested locally on Python 3.14.
 
 ## How to run
 
