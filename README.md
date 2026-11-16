@@ -71,7 +71,7 @@ Imputation, clipping, feature selection and scaling are fitted on the training p
 ## Installation
 
 ```bash
-git clone <this repository>
+git clone https://github.com/Jack-Flett/fuzzy-logic-project.git
 cd fuzzy-logic-project
 python3 -m venv .venv && source .venv/bin/activate      # Python 3.13; also tested locally on 3.14
 pip install -r requirements.txt
